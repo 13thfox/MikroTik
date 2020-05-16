@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<script type="text/javascript">
+	<!--
+	setTimeout(function () {
+		location.href = "voucher.html"
+	}, 60000);
+	-->
+</script>
+<!-- Begin Map -->
+<style>
+	#map {
+		height: 400px;
+		width: 100%;
+		padding: 1px
+	}
+</style>
+</head>
+
+<body>
+	<div class="container halamanstatus">
+		<h3 class="paket-title"><strong><a href="https://www.facebook.com/de.fantasian">SEKADAU ONLINE</a></strong></h3>
+
+		<div class="row wrapper">
+
+			<!-- <hr /> -->
+			<div id="map"></div>
+			<script>
+				function initMap() {
+					var uluru = {
+						lat: 0.0194098,
+						lng: 110.8918192
+					};
+					var map = new google.maps.Map(document.getElementById('map'), {
+						zoom: 17,
+						center: uluru
+					});
+					var marker = new google.maps.Marker({
+						position: uluru,
+						map: map
+					});
+				}
+			</script>
+			<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL19yRCw_lqkXEelljxcSzwrG_K0JMErk&callback=initMap">
+			</script>
+		</div>
+
+	</div>
+	<marquee class="running-text text-info" direction="left" scrollamount="4" onmouseover="this.stop()"
+		onmouseout="this.start() ">Informasi selanjutnya, silahkan hubungi : <a href="support.html"><b>0822 5294
+				2099</b></a>
+	</marquee>
+	<div class="border"></div>
+</body>
+
+
+<!-- END MAP -->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<meta content='Huracan' name='Author' />
+	<title>POSEI-TECH</title>
+	<link rel="stylesheet" href="b3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="light-blue lighten-1">
+	<div class="container halamaniklan">
+		<div class="row">
+
+
+		</div>
+	</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar top-bar"></span>
+					<span class="icon-bar middle-bar"></span>
+					<span class="icon-bar bottom-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img width="140" height="60" alt="Huracan" src="img/logobawah.png" class="img-responsive">
+				</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="menu">
+				<ul class="nav navbar-nav navbar-right">
+					$(if login-by)
+					<li> <a href="status.html">STATUS</a>
+					<li>
+						$(else)
+					<li> <a href="login.html">LOGIN</a>
+					<li>
+						$(endif)
+					<li><a href="voucher.html"><strong>PAKET INTERNET</strong></a></li>
+					<li><a href="menu.html"><strong>MENU MAKANAN &amp; MINUMAN</strong></a></li>
+					<li><a href="support.html">TENTANG KAMI</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="b3/js/bootstrap.min.js"></script>
+</body>
+
+</html>

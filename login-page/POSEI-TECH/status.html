@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		$(if refresh-timeout)
+		<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+		$(endif)
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content='Huracan' name='Author'/>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<title>sekadau.online Status</title>
+		<link rel="stylesheet" href="b3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<style type="text/css">
+		.table{
+			font-size: 13px;
+		}
+		</style>
+		<script language="JavaScript">
+		<!--$(if advert-pending == 'yes')
+			var popup = '';
+			function focusAdvert() {
+			if (window.focus) popup.focus();
+			}
+			function openAdvert() {
+			popup = open('$(link-advert)', 'hotspot_advert', '');
+			setTimeout("focusAdvert()", 1000);
+			}
+		$(endif)
+			function openLogout() {
+			if (window.name != 'hotspot_status') return true;
+				open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+			window.close();
+			return false;
+			}
+		//-->
+		</script>
+		<script language="JavaScript">
+		function readablizeBytes(bytes) {
+		var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+		var e = Math.floor(Math.log(bytes)/Math.log(1024));
+		return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+		}
+		</script>
+	</head>
+	<body bottommargin="0" topmargin="0" leftmargin="0" rightmargin="0"
+		$(if advert-pending == 'yes')
+		onLoad="openAdvert()"
+		$(endif)
+		>
+		<div class="container halamanstatus">
+			<div class="row wrapper">
+				<div class="col-sm-4">
+					<div class="login">
+
+						$(if login-by == 'trial')
+						<h3>Free <b>$(username)</b></h3>
+						<small2>ID <b>$(username)</b> berlaku 15 menit</small2>
+						$(elif login-by != 'mac')
+						<h3><b>$(username) !</b> </h3>
+						<small2>ID <b>$(username)</b> terhitung aktif digunakan</small2>
+						$(endif)
+						<hr/>
+						<form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+							<table class="table table-bordered table-condensed">							
+							<tr><td>IP Address</td><td>10.$(ip)</td></tr>
+							<tr><td>Mac Address</td><td>$(mac):00</td></tr>
+							<tr><td>Traffic</td><td>U $(bytes-in-nice) | <b>D $(bytes-out-nice)</b></td></tr>
+							<tr><td>Kuota</td><td><script language="JavaScript">document.write(readablizeBytes($(bytes-total)));</script> 
+	$(if limit-bytes-total) | <b><script language="JavaScript">document.write(readablizeBytes($(limit-bytes-total)));</script>$(endif)
+ 	$(if limit-bytes-total == '')| <b>UNLIMITED</b>$(endif)</td></tr>
+	
+                                
+                                <tr><td>Expired</td><td>$(uptime) | <b>$(session-timeout)</b>$(if session-timeout == '')<b>NO TIME LIMIT</b>$(endif)</td></tr>
+								<!--<tr><td>Voucher Expired</td><td><b>$(session-timeout)</b>$(if session-timeout == '')<b>NO TIME LIMIT</b>$(endif)</td></tr>-->
+                                $(if refresh-timeout)
+                                <tr><td>Refresh</td><td>$(refresh-timeout)</td></tr>
+                                $(endif)
+                 
+                                $(if blocked == 'yes')
+                                <tr><td>Status</td><td><div style="color: #FF8080">
+                                <a href="$(link-advert)" target="hotspot_advert">advertisement</a> required</div></td></tr>
+                                $(endif)
+							</table><hr/>
+							$(if login-by-mac != 'yes')
+							<!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+							<button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+							<!-- end of user manager link -->
+							<p style="color:#767676;font-size:9px; text-align:center;margin-top:-10px">Klik <b>LOG OFF</b> untuk menghentikan akses internet</p>
+							<div class="row">
+								<div class="col-sm-6">
+									<button type="submit" class="btn btn-primary btn-block2">LOG OFF</button>
+								</div>
+							</div>
+							$(endif)
+						</form>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<img src="img/about-banner.png" style="margin-bottom:5px" class="img img-responsive"/>
+					</div>
+				</div>
+
+			</div>
+		</div>
+						
+
+
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar top-bar"></span>
+					<span class="icon-bar middle-bar"></span>
+					<span class="icon-bar bottom-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+						<img width="140" height="60" alt="Huracan" src="img/logobawah.png" class="img-responsive">
+					</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="menu">
+									<ul class="nav navbar-nav navbar-right">
+$(if login-by)
+				<li class="active"> <a href="status.html"><b>STATUS</b></a><li>
+				$(else)
+				<li> <a href="login.html">LOGIN</a><li>
+				$(endif)
+								<li><a href="voucher.html"><strong>PAKET INTERNET</strong></a></li>
+								<li><a href="lokasi.html"><strong>LOKASI</strong></a></li>
+								<li><a href="support.html">TENTANG KAMI</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="b3/js/bootstrap.min.js"></script>
+	</body>
+</html>

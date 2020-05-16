@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content='Huracan' name='Author'/>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<title>sekadau.online Logout</title>
+		<link rel="stylesheet" href="b3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<style type="text/css">
+		.table{
+			font-size: 13px;
+		}
+		</style>
+		
+	</head>
+	<body>
+		<script language="JavaScript">
+		<!--
+			function openLogin() {
+			if (window.name != 'hotspot_logout') return true;
+			open('$(link-login)', '_blank', '');
+			window.close();
+			return false;
+			}
+		//-->
+		</script>
+		<script language="JavaScript">
+		function readablizeBytes(bytes) {
+		var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+		var e = Math.floor(Math.log(bytes)/Math.log(1024));
+		return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+		}
+		</script>
+		<div class="container halamanlogout">
+			<div class="row wrapper">
+				<div class="col-sm-4">
+					<div class="login">
+						$(if login-by == 'trial')
+						<h3>Free <b>$(username)</b></h3>
+						<small2>ID <b>$(username)</b> menghentikan akses internet</small2>
+						$(elif login-by != 'mac')
+						<h3><b>$(username) !</b> </h3>
+						<small2>ID <b>$(username)</b> menghentikan akses internet</small2>
+						$(endif)
+						<hr/>
+						<table class="table table-bordered table-condensed">
+							
+							<tr><td>IP Address</td><td>10.$(ip)</td></tr>
+							<tr><td>Mac Address</td><td>$(mac):00</td></tr>
+							<tr><td>Kuota</td><td><script language="JavaScript">document.write(readablizeBytes($(bytes-total)));</script> 
+	$(if limit-bytes-total) | <b><script language="JavaScript">document.write(readablizeBytes($(limit-bytes-total)));</script>$(endif)
+ 	$(if limit-bytes-total == '')| <b>UNLIMITED</b>$(endif)</td></tr>
+						
+						
+						<tr><td>Expired</td><td>$(uptime) | <b>$(session-timeout)</b>$(if session-timeout == '')<b>UNLIMITED</b>$(endif)</td></tr>
+						$(if refresh-timeout)
+					</table><hr>
+					<form action="$(link-login)" name="login" onSubmit="return openLogin()">
+					<p style="color:#767676;font-size:9px; text-align:center;margin-top:-10px">Klik tombol <b>LOGIN</b> untuk kembali ke halaman login</p>
+						<div class="row">
+							<div class="col-sm-6">
+								<button type="submit" class="btn btn-primary btn-block2">LOGIN</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="row">
+					<img src="img/about-banner.png" style="margin-bottom:5px" class="img img-responsive"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar top-bar"></span>
+				<span class="icon-bar middle-bar"></span>
+				<span class="icon-bar bottom-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img width="140" height="60" alt="Huracan" src="img/logobawah.png" class="img-responsive">
+				</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="menu">
+									<ul class="nav navbar-nav navbar-right">
+$(if login-by)
+				<li> <a href="status.html">STATUS</a><li>
+				$(else)
+				<li> <a href="login.html">LOGIN</a><li>
+				$(endif)
+								<li><a href="voucher.html"><strong>PAKET INTERNET</strong></a></li>
+								<li><a href="lokasi.html"><strong>LOKASI</strong></a></li>
+								<li><a href="support.html">TENTANG KAMI</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+		</nav>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="b3/js/bootstrap.min.js"></script>
+	</body>
+</html>
